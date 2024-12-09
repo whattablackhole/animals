@@ -1,0 +1,7 @@
+.env
+bin
+obj
+appsettings.json
+node_modules
+.vscode
+*.sln
