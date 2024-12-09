@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Animals.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +10,7 @@ builder.Services.AddSwaggerGen();
 builder.Configuration.AddEnvironmentVariables();
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<AppDbContext>((options)=> options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AppDbContext>((options)=> options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 
