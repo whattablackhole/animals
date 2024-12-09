@@ -1,14 +1,14 @@
-namespace Animals.Data;
+namespace Animals.Infrastructure.Data;
 
 using Animals.Models.Animals;
 using Microsoft.EntityFrameworkCore;
 
-public class AppDbContext : DbContext
+public class AnimalsDbContext : DbContext
 {
 
     public DbSet<Animal> Animals { get; set; } = null!;
 
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public AnimalsDbContext(DbContextOptions<AnimalsDbContext> options) : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
