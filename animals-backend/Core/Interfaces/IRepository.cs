@@ -8,4 +8,6 @@ public interface IRepository<T>
     Task DeleteAsync(int id);
 
     Task SaveChangesAsync();
+
+    void Update(T entity);
 }

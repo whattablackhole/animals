@@ -1,6 +1,6 @@
 namespace Animals.Repositories;
 
-using Animals.Models.Animals;
+using Animals.Core.Models.Animals;
 using Animals.Core.Interfaces;
 using Animals.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +27,11 @@ public class AnimalRepository : IAnimalRepository
         {
             _context.Animals.Remove(animal);
         }
+    }
+
+    public void Update(Animal animal)
+    {
+        _context.Animals.Update(animal);
     }
 
     public async Task SaveChangesAsync() => await _context.SaveChangesAsync();

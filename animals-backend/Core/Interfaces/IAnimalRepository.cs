@@ -1,4 +1,4 @@
 namespace Animals.Core.Interfaces;
-using Animals.Models.Animals;
+using Animals.Core.Models.Animals;
 
 public interface IAnimalRepository : IRepository<Animal> { }

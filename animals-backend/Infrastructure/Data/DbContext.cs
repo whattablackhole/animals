@@ -1,6 +1,6 @@
 namespace Animals.Infrastructure.Data;
 
-using Animals.Models.Animals;
+using Animals.Core.Models.Animals;
 using Microsoft.EntityFrameworkCore;
 
 public class AnimalsDbContext : DbContext

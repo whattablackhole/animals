@@ -1,10 +1,9 @@
-namespace Animals.Models.Animals;
+namespace Animals.Core.Models.Animals;
 
 public class Cat : Animal
 {
-    public Cat()
+    public Cat() : base("cat")
     {
-        Type = "cat";
     }
     public void Meow()
     {
