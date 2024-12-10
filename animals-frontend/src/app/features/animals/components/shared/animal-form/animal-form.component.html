@@ -1,0 +1,11 @@
+<div class="animal-form-container" [ngClass]="viewType">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="animal-form">
+        <div class="animal-form-controls">
+            <input pInputText placeholder="Animal name" formControlName="name" />
+
+            <p-dropdown [options]="animalTypeOptions" formControlName="type" optionLabel="name"
+                placeholder="Animal type" />
+        </div>
+        <button pButton type="submit" [label]="captions?.submitCaption ?? 'Submit'"></button>
+    </form>
+</div>

@@ -6,8 +6,10 @@ using AutoMapper;
 public interface IAnimalMapper
 {
     AnimalDto ToDto(Animal animal);
+
+    Animal ToEntity(CreateAnimalDto animal);
     Animal ToEntity(AnimalDto animalDto);
-    Animal ToEntity(AnimalDto animalDto, Animal animal);
+    void UpdateEntity(AnimalDto animalDto, Animal animal);
 }
 
 public class AnimalMapper : IAnimalMapper
@@ -26,21 +28,27 @@ public class AnimalMapper : IAnimalMapper
         return new AnimalDto { Id = animal.Id, Name = animal.Name, Type = animal.Type };
     }
 
-    public Animal ToEntity(AnimalDto animalDto)
+
+     public Animal ToEntity(CreateAnimalDto animalDto)
     {
         var animal = _animalFactory.CreateAnimal(animalDto.Type);
+
         _mapper.Map(animalDto, animal);
 
         return animal;
     }
 
-     public Animal ToEntity(AnimalDto animalDto, Animal animal)
+    public Animal ToEntity(AnimalDto animalDto)
     {
-        var newAnimal = _animalFactory.CreateAnimal(animalDto.Type);
+        var animal = _animalFactory.CreateAnimal(animalDto.Type);
 
-        _mapper.Map(animal, newAnimal);
-        _mapper.Map(animalDto, newAnimal);
+        _mapper.Map(animalDto, animal);
 
-        return newAnimal;
+        return animal;
+    }
+
+    public void UpdateEntity(AnimalDto animalDto, Animal animal)
+    {
+        _mapper.Map(animalDto, animal);
     }
 }

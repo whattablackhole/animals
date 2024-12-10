@@ -1,0 +1,16 @@
+<ul class="animals-list">
+  @for (animal of animals; track animal.id) {
+  <li class="animals-list-item">
+    <div>
+      {{ animal.type | titlecase }}
+      : {{ animal.name }}
+    </div>
+    <div class="animals-list-item-action-container">
+      <button pButton (click)="onEdit(animal)">Edit</button>
+      <button pButton (click)="onDelete(animal)">Delete</button>
+    </div>
+  </li>
+  } @empty {
+  <li class="animals-empty-list">There are no items.</li>
+  }
+</ul>

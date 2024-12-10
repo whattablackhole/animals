@@ -7,7 +7,7 @@ public interface IAnimalService
 {
     Task<IEnumerable<AnimalDto>> GetAllAnimalsAsync();
     Task<AnimalDto?> GetAnimalByIdAsync(int id);
-    Task<AnimalDto> CreateAnimalAsync(AnimalDto animalDto);
+    Task<AnimalDto> CreateAnimalAsync(CreateAnimalDto animalDto);
     Task UpdateAnimalAsync(AnimalDto animalDto);
     Task DeleteAnimalAsync(int id);
 }

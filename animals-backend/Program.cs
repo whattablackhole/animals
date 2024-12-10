@@ -20,12 +20,13 @@ builder.Services.AddControllers();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
-builder.Services.AddDbContext<AnimalsDbContext>((options)=> options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AnimalsDbContext>((options) => options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseCors((p) => p.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod().AllowCredentials());
     app.UseSwagger();
     app.UseSwaggerUI();
 }

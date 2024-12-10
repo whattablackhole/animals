@@ -1,0 +1,12 @@
+<app-animals-constructor
+  (createAnimal)="createAnimal($event)"
+></app-animals-constructor>
+
+@if(animals$ | async; as animals) {
+
+<app-animals-list
+  [animals]="animals"
+  (animalDelete)="deleteAnimal($event)"
+  (animalEdit)="editAnimal($event)"
+></app-animals-list>
+}

@@ -1,0 +1,10 @@
+@if (animal$ | async; as animal) {
+<div class="animal-edit-container">
+    <app-animal-form [animal]="animal" (onValueSubmit)="updateAnimal($event)"
+        [captions]="{submitCaption: 'Update'}" viewType="column"></app-animal-form>
+</div>
+} @else if (loadingError$ | async) {
+<div>Error occured while loading the data. Redirecting to home...</div>
+} @else {
+<div>Loading...</div>
+}

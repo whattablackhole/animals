@@ -32,7 +32,7 @@ public class AnimalController : ControllerBase
     }
 
     [HttpPost()]
-    public async Task<IActionResult> CreateAnimal(AnimalDto animalDto)
+    public async Task<IActionResult> CreateAnimal(CreateAnimalDto animalDto)
     {
         try
         {

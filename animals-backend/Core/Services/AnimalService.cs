@@ -7,7 +7,6 @@ using Animals.Core.Models.Animals;
 public class AnimalService : IAnimalService
 {
     private readonly IAnimalRepository _animalRepository;
-
     private readonly IAnimalMapper _animalMapper;
     public AnimalService(IAnimalRepository animalRepository, IAnimalMapper mapper)
     {
@@ -27,7 +26,7 @@ public class AnimalService : IAnimalService
         return animal != null ? new AnimalDto { Id = animal.Id, Name = animal.Name, Type = animal.Type } : null;
     }
 
-    public async Task<AnimalDto> CreateAnimalAsync(AnimalDto animalDto)
+    public async Task<AnimalDto> CreateAnimalAsync(CreateAnimalDto animalDto)
     {
         var animal = _animalMapper.ToEntity(animalDto);
 
@@ -44,12 +43,16 @@ public class AnimalService : IAnimalService
 
         if (animal != null)
         {
-            var updatedAnimal = _animalMapper.ToEntity(animalDto, animal);
+            _animalRepository.Delete(animal);
 
-            _animalRepository.Update(updatedAnimal);
+            Animal updatedAnimal = _animalMapper.ToEntity(animalDto);
+
+            await _animalRepository.AddAsync(updatedAnimal);
 
             await _animalRepository.SaveChangesAsync();
-        } else {
+        }
+        else
+        {
             throw new KeyNotFoundException($"Animal with ID {animalDto.Id} not found.");
         }
     }

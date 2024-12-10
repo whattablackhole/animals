@@ -1,0 +1,38 @@
+.animal-form-container {
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.animal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  align-content: stretch;
+}
+
+.animal-form-controls {
+    display: flex;
+    align-content: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+:host::ng-deep {
+    .p-dropdown {
+        width: 100%;
+    }
+    .p-inputwrapper {
+        width: 100%;
+    }
+}
+
+.column {
+    .animal-form-controls {
+        flex-direction: column;
+       
+    }
+    .animal-form  {
+        align-items: start;      
+    }   
+}

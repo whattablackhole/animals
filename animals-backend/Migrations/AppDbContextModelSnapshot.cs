@@ -40,7 +40,7 @@ namespace animals_backend.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Animals");
+                    b.ToTable("Animals", (string)null);
 
                     b.HasDiscriminator<string>("Type").HasValue("Animal");
 

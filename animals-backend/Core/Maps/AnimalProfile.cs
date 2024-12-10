@@ -8,6 +8,7 @@ public class AnimalProfile : Profile
 {
     public AnimalProfile()
     {
-        CreateMap<AnimalDto, Animal>().ForMember(dest => dest.Id, opt => opt.Ignore());
+        CreateMap<AnimalDto, Animal>();
+        CreateMap<CreateAnimalDto, Animal>();
     }
 }

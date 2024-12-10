@@ -29,6 +29,11 @@ public class AnimalRepository : IAnimalRepository
         }
     }
 
+    public void Delete(Animal animal)
+    {
+        _context.Animals.Remove(animal);
+    }
+
     public void Update(Animal animal)
     {
         _context.Animals.Update(animal);
