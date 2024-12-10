@@ -51,7 +51,7 @@ public class AnimalController : ControllerBase
 
     }
 
-    [HttpPatch("{id}")]
+    [HttpPut("{id}")]
     public async Task<IActionResult> UpdateAnimal(int id, AnimalDto animalDto)
     {
         try
